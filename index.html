@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillDossier Lite - Find Your Perfect Mentor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Skip to content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50 btn btn--primary">
+        Skip to main content
+    </a>
+
+    <!-- Header -->
+    <header class="header" role="banner">
+        <div class="container">
+            <div class="header__content">
+                <div class="header__logo">
+                    <h1 class="logo-text">SkillDossier</h1>
+                </div>
+                
+                <nav class="nav" role="navigation" aria-label="Main navigation">
+                    <ul class="nav__list">
+                        <li><a href="#" class="nav__link" data-page="home" aria-current="page">Home</a></li>
+                        <li><a href="#" class="nav__link" data-page="mentors">Mentors</a></li>
+                        <li><a href="#" class="nav__link" data-page="dashboard">Dashboard</a></li>
+                        <li><a href="#" class="nav__link" data-page="about">About</a></li>
+                        <li><a href="#" class="nav__link" data-page="contact">Contact</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header__actions">
+                    <button class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <span class="theme-toggle__icon">🌙</span>
+                    </button>
+                    <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main">
+        <!-- Home Page -->
+        <section id="home-page" class="page page--active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero__content">
+                        <h2 class="hero__title">Find Your Perfect Mentor</h2>
+                        <p class="hero__subtitle">Connect with industry experts, accelerate your career growth, and develop the skills that matter most in today's competitive landscape.</p>
+                        <div class="hero__actions">
+                            <button class="btn btn--primary btn--lg" data-page="mentors">Browse Mentors</button>
+                            <button class="btn btn--outline btn--lg" data-page="dashboard">View Dashboard</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Value Propositions -->
+            <section class="value-props">
+                <div class="container">
+                    <div class="value-props__grid">
+                        <div class="value-prop-card">
+                            <div class="value-prop-card__icon">🎯</div>
+                            <h3 class="value-prop-card__title">Expert Guidance</h3>
+                            <p class="value-prop-card__text">Get personalized advice from industry professionals who've walked the path you're on.</p>
+                        </div>
+                        <div class="value-prop-card">
+                            <div class="value-prop-card__icon">📚</div>
+                            <h3 class="value-prop-card__title">Skill Development</h3>
+                            <p class="value-prop-card__text">Learn cutting-edge technologies and methodologies from practicing experts in the field.</p>
+                        </div>
+                        <div class="value-prop-card">
+                            <div class="value-prop-card__icon">🚀</div>
+                            <h3 class="value-prop-card__title">Career Growth</h3>
+                            <p class="value-prop-card__text">Accelerate your career progression with strategic advice and networking opportunities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works -->
+            <section class="how-it-works">
+                <div class="container">
+                    <h2 class="section-title">How It Works</h2>
+                    <div class="steps">
+                        <div class="step">
+                            <div class="step__number">1</div>
+                            <h3 class="step__title">Browse</h3>
+                            <p class="step__text">Explore our curated list of industry mentors and find experts in your field of interest.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step__number">2</div>
+                            <h3 class="step__title">Connect</h3>
+                            <p class="step__text">Reach out to mentors who align with your goals and learning objectives.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step__number">3</div>
+                            <h3 class="step__title">Grow</h3>
+                            <p class="step__text">Develop your skills through personalized guidance and real-world insights.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Mentors Page -->
+        <section id="mentors-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">Find Your Mentor</h2>
+                    <p class="page-subtitle">Browse our expert mentors and find the perfect match for your learning journey.</p>
+                </div>
+
+                <!-- Filters -->
+                <div class="filters-section">
+                    <div class="search-container">
+                        <input type="text" class="form-control search-input" placeholder="Search mentors, skills, or titles..." id="mentor-search" aria-label="Search mentors">
+                    </div>
+                    
+                    <div class="filters">
+                        <div class="filter-group">
+                            <label for="skills-filter" class="form-label">Skills</label>
+                            <select id="skills-filter" class="form-control" multiple aria-label="Filter by skills">
+                                <!-- Options populated by JS -->
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="availability-filter" class="form-label">Availability</label>
+                            <select id="availability-filter" class="form-control" aria-label="Filter by availability">
+                                <option value="">All</option>
+                                <option value="open">Available</option>
+                                <option value="busy">Busy</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mentors Grid -->
+                <div class="mentors-grid" id="mentors-grid">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-state hidden" id="mentors-empty-state">
+                    <div class="empty-state__icon">🔍</div>
+                    <h3 class="empty-state__title">No mentors found</h3>
+                    <p class="empty-state__text">Try adjusting your filters or search terms to find more mentors.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Page -->
+        <section id="dashboard-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">Your Dashboard</h2>
+                    <p class="page-subtitle">Track your mentorship journey and stay connected with your mentors.</p>
+                </div>
+
+                <div class="dashboard-grid">
+                    <!-- Saved Mentors -->
+                    <div class="dashboard-card">
+                        <h3 class="dashboard-card__title">Saved Mentors</h3>
+                        <div class="saved-mentors" id="saved-mentors">
+                            <!-- Populated by JavaScript -->
+                        </div>
+                        <div class="empty-state hidden" id="saved-mentors-empty">
+                            <div class="empty-state__icon">⭐</div>
+                            <h4 class="empty-state__title">No saved mentors</h4>
+                            <p class="empty-state__text">Start by saving mentors from the mentors page.</p>
+                        </div>
+                    </div>
+
+                    <!-- Messages -->
+                    <div class="dashboard-card">
+                        <h3 class="dashboard-card__title">Messages</h3>
+                        <div class="messages-placeholder">
+                            <div class="empty-state">
+                                <div class="empty-state__icon">💬</div>
+                                <h4 class="empty-state__title">No messages yet</h4>
+                                <p class="empty-state__text">Your conversations with mentors will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activity Timeline -->
+                    <div class="dashboard-card dashboard-card--full">
+                        <h3 class="dashboard-card__title">Activity Timeline</h3>
+                        <div class="activity-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-icon">👋</div>
+                                <div class="timeline-content">
+                                    <h4 class="timeline-title">Welcome to SkillDossier!</h4>
+                                    <p class="timeline-text">Start by exploring our mentor profiles and saving your favorites.</p>
+                                    <span class="timeline-time">Just now</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Page -->
+        <section id="about-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">About SkillDossier</h2>
+                    <p class="page-subtitle">Connecting mentors and mentees for meaningful career growth.</p>
+                </div>
+
+                <div class="about-content">
+                    <section class="about-section">
+                        <h3>Our Mission</h3>
+                        <p>We believe that everyone deserves access to quality mentorship. SkillDossier connects ambitious learners with experienced professionals, creating meaningful relationships that accelerate career growth and skill development.</p>
+                    </section>
+
+                    <section class="about-section">
+                        <h3>Safety & Guidelines</h3>
+                        <div class="safety-tips">
+                            <div class="tip-card">
+                                <h4>For Mentees</h4>
+                                <ul>
+                                    <li>Be respectful of your mentor's time and expertise</li>
+                                    <li>Come prepared with specific questions and goals</li>
+                                    <li>Maintain professional communication at all times</li>
+                                    <li>Follow through on commitments and action items</li>
+                                </ul>
+                            </div>
+                            <div class="tip-card">
+                                <h4>For Mentors</h4>
+                                <ul>
+                                    <li>Set clear boundaries and expectations upfront</li>
+                                    <li>Provide constructive and actionable feedback</li>
+                                    <li>Respect confidentiality and privacy</li>
+                                    <li>Foster a supportive learning environment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- FAQ Accordion -->
+                    <section class="about-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-accordion">
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="faq-1">
+                                    <span>How do I find the right mentor?</span>
+                                    <span class="accordion-icon">+</span>
+                                </button>
+                                <div class="accordion-content" id="faq-1">
+                                    <p>Use our search and filter features to find mentors by skills, experience, and availability. Look for mentors whose background aligns with your career goals and learning objectives.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="faq-2">
+                                    <span>Is mentorship free on SkillDossier?</span>
+                                    <span class="accordion-icon">+</span>
+                                </button>
+                                <div class="accordion-content" id="faq-2">
+                                    <p>This is a demo platform for portfolio purposes. In a real-world scenario, mentorship arrangements and pricing would be determined between mentors and mentees.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="faq-3">
+                                    <span>How do I become a mentor?</span>
+                                    <span class="accordion-icon">+</span>
+                                </button>
+                                <div class="accordion-content" id="faq-3">
+                                    <p>This is currently a demo version. In the full platform, experienced professionals can apply to become mentors through our application process.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Page -->
+        <section id="contact-page" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h2 class="page-title">Contact Us</h2>
+                    <p class="page-subtitle">Have questions or feedback? We'd love to hear from you.</p>
+                </div>
+
+                <div class="contact-content">
+                    <form class="contact-form" id="contact-form" novalidate>
+                        <div class="form-group">
+                            <label for="contact-name" class="form-label">Name *</label>
+                            <input type="text" id="contact-name" class="form-control" required aria-describedby="name-error">
+                            <div class="error-message hidden" id="name-error">Please enter your name</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-email" class="form-label">Email *</label>
+                            <input type="email" id="contact-email" class="form-control" required aria-describedby="email-error">
+                            <div class="error-message hidden" id="email-error">Please enter a valid email address</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-reason" class="form-label">Reason for Contact</label>
+                            <select id="contact-reason" class="form-control">
+                                <option value="">Select a reason</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="mentor">Become a Mentor</option>
+                                <option value="technical">Technical Support</option>
+                                <option value="feedback">Feedback</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message" class="form-label">Message *</label>
+                            <textarea id="contact-message" class="form-control" rows="5" required aria-describedby="message-error" placeholder="Tell us how we can help you..."></textarea>
+                            <div class="error-message hidden" id="message-error">Please enter your message</div>
+                        </div>
+
+                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
+                    </form>
+
+                    <div class="contact-success hidden" id="contact-success">
+                        <div class="success-message">
+                            <div class="success-icon">✅</div>
+                            <h3>Message Sent!</h3>
+                            <p>Thank you for your message. We'll get back to you soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">SkillDossier</h3>
+                    <p class="footer__text">Connecting mentors and mentees for career growth.</p>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Quick Links</h4>
+                    <ul class="footer__links">
+                        <li><a href="#" data-page="home">Home</a></li>
+                        <li><a href="#" data-page="mentors">Mentors</a></li>
+                        <li><a href="#" data-page="about">About</a></li>
+                        <li><a href="#" data-page="contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__section">
+                    <h4 class="footer__subtitle">Connect</h4>
+                    <div class="footer__social">
+                        <a href="#" aria-label="Twitter">Twitter</a>
+                        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+                        <a href="#" aria-label="GitHub">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2025 SkillDossier Lite. Demo project for portfolio purposes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
